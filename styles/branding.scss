@@ -1,0 +1,41 @@
+@import './map-zip.scss';
+
+// Scss for branding
+$brand_page_background: #252525;
+
+$fontsize: (
+	default: 11px,
+	field: 14px
+);
+
+$spacing: (
+	default: 20px,
+	2x: 40px
+);
+
+// Colour order: default, lighter, darker
+$colour-palette: (
+	error: (#d0021b, #d0021b, #d0021b),
+	font: (#4a4a4a, #4a4a4a, #4a4a4a),
+	yellow: (#fcef5c, #fcef5c69, #fcef5c)
+);
+
+// Colour variants for palette colours
+$colour-variants: (default, lighter, darker);
+
+// Map generated from combining the $colour-palette map and $colour-variants list.
+$colours: ();
+
+// Create colours map from the colour palette maps and variants list
+@each $colour-entry, $colour-value in $colour-palette {
+  $colours-merge: map-zip($colour-variants, map-get($colour-palette, $colour-entry));
+  $colours: map-merge($colours, ($colour-entry: $colours-merge));
+}
+
+// Function to return colours from the colours map
+// @param {String} $colour-name - Colour to look up from $colours map.
+// @param {String} $colour-variant - Variant of colour: 'default', 'lighter' or 'darker'. Defaults to 'default' if nothing passed.
+// @returns {String} Colour value.
+@function get-colour($colour-name, $colour-variant: default) {
+  @return map-get(map-get($colours, $colour-name), $colour-variant);
+}

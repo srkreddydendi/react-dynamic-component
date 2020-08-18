@@ -1,0 +1,35 @@
+$responsePoints: (
+  small: 576px,
+  medium: 768px,
+  large: 992px,
+  extra-large: 1200px
+  );
+  // sm, md, lg, xl
+  
+// Mixin for simplifying media queries in the sass
+// @param {Map} $responsePoints - Map containing response points.
+// @param {String} $direction - from/to. From creates min-width media-query, to creates max-width. Defaults to 'from' if nothing passed.
+@mixin respond($responsePoint, $direction: from) {
+  $media-feature: null;
+
+  @if $direction == 'from' {
+    $media-feature: 'min-width';
+  }
+  @else {
+    $media-feature: 'max-width';
+  }
+
+  @if map-has-key($responsePoints, $responsePoint) {
+    @media screen and (#{$media-feature}: #{map-get($responsePoints, $responsePoint)}) {
+      @content;
+    }
+  }
+  @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$responsePoint}`. Please make sure it is defined in `$responsePoints` map.";
+  }
+}
+
+// Example usage:
+// @include respond(medium) {
+//   background-color: orange;
+// }

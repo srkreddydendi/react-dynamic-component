@@ -1,0 +1,34 @@
+@import '../styles/branding.scss';
+@import '../styles/common.scss';
+@import '../styles/utilities.scss';
+
+.add-savings {
+	@include container-fixed-size();
+
+	header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		margin-bottom: 3em;
+
+		h3 {
+			margin: 0;
+		}
+	}
+
+	span {
+		font-size: 14px;
+	}
+
+	p {
+		font-size: 12px;
+	}
+
+	.input-pound.input-pound--filled i {
+		top: 8px;
+	}
+
+	select {
+		text-transform: uppercase;
+	}
+}

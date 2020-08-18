@@ -1,0 +1,26 @@
+@import './utilities.scss';
+@import './branding.scss';
+@import './common.scss';
+
+// The following style is for development only.
+body {
+  margin: 0;
+  padding: 1em;
+  font-family: sans-serif;
+  background: $brand_page_background;
+}
+
+.react-examples {
+  display: flex;
+  align-items: center;
+	flex-direction: column;
+	justify-content: space-between;
+
+	& > div {
+    margin-bottom: 5em;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+}

@@ -1,0 +1,30 @@
+@import './map-zip';
+@import './branding';
+@import './respond';
+
+@mixin container-fixed-size {
+	background-color: get-colour(yellow);
+	width: 446px;
+  height: auto;
+  max-width: 446px;
+	border-radius: 10px;
+	padding: 70px;
+}
+
+@function spacing($key: 'default') {
+  @if map-has-key($spacing, $key) {
+    @return map-get($spacing, $key);
+  }
+
+  @warn "Unknown `#{$key}` in $spacing.";
+  @return null;
+}
+
+@function fontsize($key: 'default') {
+  @if map-has-key($fontsize, $key) {
+    @return map-get($fontsize, $key);
+  }
+
+  @warn "Unknown `#{$key}` in $fontsize.";
+  @return null;
+}

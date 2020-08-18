@@ -1,0 +1,19 @@
+{
+	"title": "Add Savings",
+	"SelectSavingsType": {
+		"label": "What type of savings is it?",
+		"action": "Select what type of savings is it?"
+	},
+	"SelectInterestRate": {
+		"label": "What is the interest rate?",
+		"action": "Select what is the interest rate?"
+	},
+	"AgeSelect": {
+		"label": "At what age will you receive it?",
+		"action": "At what age will you receive it?"
+	},
+	"TotalValueInput": {
+		"title": "How much is it?",
+		"explain": "If you are not sure, put in your best guess. You can always change the details later"
+	}
+}
